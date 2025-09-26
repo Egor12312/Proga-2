@@ -10,19 +10,26 @@
 using namespace std;
 
 int main() {
-  const int n = 9;
-  int i;
-  double t[n], g;
- 
-  cout << "Vvedite 9 eiementov:" << endl;
-  for (i = 0; i < 9; ++i)
-    cin >> t[i];
+  double t, g;
+  
+  cout << "t = ";
+  cin  >> t;
+  
+  while (t < 1) {
+    g = 4.57 * (1 - exp( - 0.73 * t));
+    t = t + 0.2;
     
-  cout  << "\t"  << "t"  << "\t \t" << "g"  << endl;
-  cout  << fixed << setprecision(3);
-  for (i = 0; i < 9; ++i) { 
-      g = 4.57 * (1 - exp( - 0.73 * t[i]));
-      cout  << "\t " << t[i] << "\t  \t " << g << endl;
-}
- return 0;
+    cout << fixed << setprecision(3);
+    cout << "t = " << t << "\t \t" << g << endl;
+  }
+
+  do {
+    t = t + 1;
+    g = 4.57 * (1 - exp( - 0.73 * t));
+  
+    cout << "t = " << t << "\t \t" << g << endl;
+  
+} while (t < 5);
+
+  return 0;
 }
