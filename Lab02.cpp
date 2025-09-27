@@ -11,12 +11,14 @@ using namespace std;
 
 int main() {
   double t, g;
+  const double a = 0.73;
+  const double A = 4.57;
   
   cout << "t = ";
   cin  >> t;
   
-  while (t < 1) {
-    g = 4.57 * (1 - exp( - 0.73 * t));
+  while (t < 1.0) {
+    g = A * (1.0 - exp( - a * t));
     t = t + 0.2;
     
     cout << fixed << setprecision(3);
@@ -24,12 +26,11 @@ int main() {
   }
 
   do {
-    t = t + 1;
-    g = 4.57 * (1 - exp( - 0.73 * t));
+    t = t + 1.0;
+    g = A * (1.0 - exp( - a * t));
   
     cout << "t = " << t << "\t \t" << g << endl;
   
-} while (t < 5);
-
+} while (t < 5.0);
   return 0;
 }
