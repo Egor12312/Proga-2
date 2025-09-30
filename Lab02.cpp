@@ -11,26 +11,30 @@ using namespace std;
 
 int main() {
   double t, g;
-  const double a = 0.73;
-  const double A = 4.57;
+  double a = 0.73;
+  double A = 4.57;
+  double shag = 0.2;
+  double sred_znachenie = 1.0;
+  double max_znachenie = 5.0;
   
   cout << "t = ";
   cin  >> t;
   
-  while (t < 1.0) {
+  while (t < sred_znachenie) {
     g = A * (1.0 - exp( - a * t));
-    t = t + 0.2;
+    t = t + shag;
     
     cout << fixed << setprecision(3);
     cout << "t = " << t << "\t \t" << g << endl;
   }
-
+  
   do {
-    t = t + 1.0;
-    g = A * (1.0 - exp( - a * t));
+    t = t + sred_znachenie;
+    g = A * (1.0 - exp(-a * t));
   
     cout << "t = " << t << "\t \t" << g << endl;
+  }
   
-} while (t < 5.0);
+  while (t < max_znachenie);
   return 0;
 }
