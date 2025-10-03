@@ -13,28 +13,27 @@ int main() {
   double t, g;
   double a = 0.73;
   double A = 4.57;
-  double shag = 0.2;
-  double sred_znachenie = 1.0;
-  double max_znachenie = 5.0;
+  double step = 0.2;
+  double averageValue = 1.0;
+  double maxValue = 5.0;
   
   cout << "t = ";
   cin  >> t;
   
-  while (t < sred_znachenie) {
+  while (t < averageValue) {
     g = A * (1.0 - exp( - a * t));
-    t = t + shag;
+    t = t + step;
     
     cout << fixed << setprecision(3);
     cout << "t = " << t << "\t \t" << g << endl;
   }
   
   do {
-    t = t + sred_znachenie;
+    t = t + averageValue;
     g = A * (1.0 - exp(-a * t));
   
     cout << "t = " << t << "\t \t" << g << endl;
-  }
+  } while (t < maxValue);
   
-  while (t < max_znachenie);
   return 0;
 }
